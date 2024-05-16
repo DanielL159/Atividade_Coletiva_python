@@ -3,9 +3,15 @@
 #remover e visualizar tarefas diretamente no terminal.
 #Você pode usar um arquivo de texto para armazenar as tarefas localmente.
 
+from datetime import datetime, timedelta
+import os
+
 from agenda import Agenda
 from usuario import Usuario
 from atividade import Atividade
+
+# Essa funcao limpa o terminal automaticamente
+os.system('clear') #MARK - Caso use windows troque a string por 'cls' ou 'CLEAR'
 
 usuario = Usuario("Usuario1",Agenda())
 while True:
@@ -18,8 +24,6 @@ while True:
                                                 O que desejar fazer:""",end=" ")
     opcao=int(input())
     
-    print('Verificando se git funcionando corretamente')
-
     if opcao == 1:
         nome= input("Qual atividade deseja adicionar:")
         tipo=input("Tipo de atividade(PROFISSIONAL)(PESSOAL):")
@@ -28,7 +32,7 @@ while True:
             tipo=input("Tipo de atividade(PROFISSIONAL)(PESSOAL):")
             
         prazo=input("Qual o tempo previsto de duração da atividade:")
-        usuario.adicionarTarefa(Atividade(nome,tipo,prazo))
+        usuario.adicionarTarefa(Atividade(nome,tipo,prazo,datetime.utcnow()))
         usuario.mostraAtividade()
         
     elif opcao == 2:

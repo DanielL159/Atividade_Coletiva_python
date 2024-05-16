@@ -1,5 +1,7 @@
+import time 
+
 class Agenda:
-    
+
     def __init__(self):
         self._lista = []
         
@@ -15,8 +17,12 @@ class Agenda:
         
     def mostraAtividade(self):
         for atividade in self.lista:
+            print()
             print("Nome:", atividade.nome)
             print("Tipo:", atividade.tipo)
             print("Prazo:", atividade.prazo)
+            print("Horário de criação da atividade:", atividade.dataAbertura.strftime("%d/%m/%Y %H:%M:%S"))
+            print("Horário do fim da Atividade:", atividade.dataFim.strftime("%d/%m/%Y %H:%M:%S"))
             print()
-            
+
+         
