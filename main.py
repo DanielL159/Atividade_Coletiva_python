@@ -13,6 +13,19 @@ from atividade import Atividade
 # Essa funcao limpa o terminal automaticamente
 os.system('clear') #MARK - Caso use windows troque a string por 'cls' ou 'CLEAR'
 
+
+def adcionarDataDeTarefa():
+    while True:
+        dataAbertura = input("Informe a data do início da atividade no formato DD/MM/AAAA: ")
+        horaAbertura = input("Informe a hora de início da atividade no formato HH:MM: ")
+
+        try:
+            data_hora = datetime.strptime(f"{dataAbertura} {horaAbertura}", "%d/%m/%Y %H:%M")
+            return data_hora
+        except ValueError:
+            print("Formato de data ou hora inválido. Por favor, insira novamente.")
+
+
 usuario = Usuario("Usuario1",Agenda())
 while True:
 
@@ -30,9 +43,11 @@ while True:
         
         while tipo.upper() != "PROFISSIONAL" and tipo.upper() != "PESSOAL":
             tipo=input("Tipo de atividade(PROFISSIONAL)(PESSOAL):")
-            
-        prazo=input("Qual o tempo previsto de duração da atividade:")
-        usuario.adicionarTarefa(Atividade(nome,tipo,prazo,datetime.utcnow()))
+
+        dataHora = adcionarDataDeTarefa()
+        prazo= input("Qual o tempo previsto de duração da atividade mais d para dia ou h para hora:")
+
+        usuario.adicionarTarefa(Atividade(nome,tipo,prazo,dataHora))
         usuario.mostraAtividade()
         
     elif opcao == 2:
@@ -47,3 +62,4 @@ while True:
         break;
     else:
         print(f"\nNumero digitado e invalido por gentileza digite um novo numero\n")
+

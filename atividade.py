@@ -6,13 +6,13 @@ class Atividade:
     def __init__(self, nome, tipo, prazo, dataAbertura):
         self._nome = nome
         self._tipo = tipo
-        self._prazo = int(prazo)
+        self._prazo = prazo
         self._dataAbertura = dataAbertura
-        self._dataFim = self._dataAbertura + timedelta(days=self._prazo)
+        self._dataFim = self.calculaPrazoFinal()
 
     @property
     def prazo(self):
-        return self._prazo
+        return self._prazo.upper()
     
     @property
     def nome(self):
@@ -29,3 +29,10 @@ class Atividade:
     @property
     def dataFim(self):
         return self._dataFim
+    
+
+    def calculaPrazoFinal(self):
+        if self.prazo[1] == 'D':
+            return self.dataAbertura + timedelta(days=int(self.prazo[0]))
+        elif self.prazo[1] == 'H':
+            return self.dataAbertura + timedelta(hours=int(self.prazo[0]))
