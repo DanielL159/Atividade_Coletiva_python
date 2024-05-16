@@ -21,7 +21,7 @@ class Agenda:
             print("Nome:", atividade.nome)
             print("Tipo:", atividade.tipo)
             print("Prazo:", atividade.prazo)
-            print("Horário de criação da atividade:", atividade.dataAbertura.strftime("%d/%m/%Y %H:%M:%S"))
+            print("Horário de inicio da atividade:", atividade.dataAbertura.strftime("%d/%m/%Y %H:%M:%S"))
             print("Horário do fim da Atividade:", atividade.dataFim.strftime("%d/%m/%Y %H:%M:%S"))
             print()
 
