@@ -18,6 +18,8 @@ while True:
                                                 O que desejar fazer:""",end=" ")
     opcao=int(input())
     
+    print('Verificando se git funcionando corretamente')
+
     if opcao == 1:
         nome= input("Qual atividade deseja adicionar:")
         tipo=input("Tipo de atividade(PROFISSIONAL)(PESSOAL):")
