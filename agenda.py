@@ -10,5 +10,13 @@ class Agenda:
     def adicionarALista(self,tarefa):
         self.lista.append(tarefa)
         
-    def __str__(self):
-        return f"{self.lista}"
+    def removerDaLista(self,contador):
+        del self.lista[contador]
+        
+    def mostraAtividade(self):
+        for atividade in self.lista:
+            print("Nome:", atividade.nome)
+            print("Tipo:", atividade.tipo)
+            print("Prazo:", atividade.prazo)
+            print()
+            
