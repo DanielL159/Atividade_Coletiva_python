@@ -3,6 +3,14 @@
 #remover e visualizar tarefas diretamente no terminal.
 #Você pode usar um arquivo de texto para armazenar as tarefas localmente.
 
+def verifica_cria_arquivo(nome_arquivo):
+  if not os.path.exists(nome_arquivo):
+    with open(nome_arquivo, "a") as arquivo:
+        pass
+    return False
+  else:
+    return True
+
 from datetime import datetime, timedelta
 import os
 
@@ -25,8 +33,9 @@ def adcionarDataDeTarefa():
         except ValueError:
             print("Formato de data ou hora inválido. Por favor, insira novamente.")
 
+verifica_cria_arquivo(nome_arquivo="atividades.txt")
 
-usuario = Usuario("Usuario1",Agenda())
+usuario = Usuario("Usuario1",Agenda("atividades.txt"))
 while True:
 
     print("""
@@ -36,11 +45,11 @@ while True:
                                                 4- SAIR
                                                 O que desejar fazer:""",end=" ")
     opcao=int(input())
-    
+
     if opcao == 1:
         nome= input("Qual atividade deseja adicionar:")
         tipo=input("Tipo de atividade(PROFISSIONAL)(PESSOAL):")
-        
+
         while tipo.upper() != "PROFISSIONAL" and tipo.upper() != "PESSOAL":
             tipo=input("Tipo de atividade(PROFISSIONAL)(PESSOAL):")
 
@@ -49,12 +58,14 @@ while True:
 
         usuario.adicionarTarefa(Atividade(nome,tipo,prazo,dataHora))
         usuario.mostraAtividade()
-        
+        usuario.agenda.gravarAtividades(nome_arquivo="atividades.txt")
+
+
     elif opcao == 2:
         nome= input("Qual atividade deseja remover:")
         usuario.removerTarefa(nome)
         usuario.mostraAtividade()
-        
+
     elif opcao == 3:
         usuario.mostraAtividade()
 
@@ -62,4 +73,3 @@ while True:
         break;
     else:
         print(f"\nNumero digitado e invalido por gentileza digite um novo numero\n")
-
