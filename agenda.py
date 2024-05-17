@@ -61,3 +61,5 @@ class Agenda:
                 dados_linha_atual[2],
                 datetime.strptime(dados_linha_atual[3], "%d/%m/%Y %H:%M:%S"))
             self._lista.append(atividade_atual)
+    def __str__(self):
+        return f"{self.lista}"
