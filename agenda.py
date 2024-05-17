@@ -1,7 +1,7 @@
 import time 
 
 class Agenda:
-
+    __slots__ = ['_lista']
     def __init__(self):
         self._lista = []
         

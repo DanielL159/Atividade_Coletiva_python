@@ -1,5 +1,5 @@
 class Usuario:
-
+    __slots__ = ['_nome', '_agenda']
     def __init__(self,nome,agenda):
         self._nome = nome
         self._agenda=agenda

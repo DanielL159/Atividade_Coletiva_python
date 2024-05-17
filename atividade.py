@@ -2,7 +2,7 @@ import time
 from datetime import datetime, timedelta
 
 class Atividade:
-    
+    __slots__ = ['_nome', '_tipo', '_prazo', '_dataAbertura', '_dataFim']
     def __init__(self, nome, tipo, prazo, dataAbertura):
         self._nome = nome
         self._tipo = tipo
