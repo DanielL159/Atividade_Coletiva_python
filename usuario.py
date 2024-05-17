@@ -28,4 +28,4 @@ class Usuario:
 
 
   def __str__(self):
-      return f"{self.nome} :\n {self.agenda}"
+      return f"{self.nome} :\n"
