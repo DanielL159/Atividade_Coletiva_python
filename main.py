@@ -57,7 +57,10 @@ while True:
         prazo= input("Qual o tempo previsto de duração da atividade mais d para dia ou h para hora:")
 
         usuario.adicionarTarefa(Atividade(nome,tipo,prazo,dataHora))
+        print(f"\n")
+        print(usuario)
         usuario.mostraAtividade()
+        #print(usuario)
         usuario.agenda.gravarAtividades(nome_arquivo="atividades.txt")
 
 
@@ -67,7 +70,10 @@ while True:
         usuario.mostraAtividade()
 
     elif opcao == 3:
-        usuario.mostraAtividade()
+      print(f"\n")
+      print(usuario)
+      usuario.mostraAtividade()
+  
 
     elif opcao == 4:
         break;
