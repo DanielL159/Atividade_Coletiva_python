@@ -38,5 +38,3 @@ class Atividade:
         elif self.prazo[1] == 'H':
             return self.dataAbertura + timedelta(hours=int(self.prazo[0]))
  
-    def __str__(self):
-        return f"NOME:{self.nome}\nTIPO:{self.tipo}\nDATA DE INICIO:{self.dataAbertura}\nDATA DE ENCERRAMENTO:{self.dataFim}"
