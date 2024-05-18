@@ -37,4 +37,3 @@ class Atividade:
             return self.dataAbertura + timedelta(days=int(self.prazo[0]))
         elif self.prazo[1] == 'H':
             return self.dataAbertura + timedelta(hours=int(self.prazo[0]))
- 
