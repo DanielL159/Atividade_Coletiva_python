@@ -29,20 +29,25 @@ class Agenda:
         self.gravarAtividades(self._arquivo)
 
     def removerDaLista(self, contador):
+        if(contador> len(self.lista) - 1 or contador < 0):
+            print(f"Posicao invalida. Digite um numero que esteja entre 1 e {len(self.lista)}")
+            return False
         del self.lista[contador]
         self.gravarAtividades(self._arquivo)
+        return True
 
     def mostraAtividade(self):
+        i=1
         for atividade in self.lista:
-            print("Nome:", atividade.nome)
+            print(f"{i} - {atividade.nome}")
             print("Tipo:", atividade.tipo)
             print("Prazo:", atividade.prazo)
             print("Horário de inicio da atividade:",
                   atividade.dataAbertura.strftime("%d/%m/%Y %H:%M:%S"))
             print("Horário do fim da Atividade:",
                   atividade.dataFim.strftime("%d/%m/%Y %H:%M:%S"))
-            print()
-
+            print("-------------------------------------------")
+            i+=1
     def gravarAtividades(self, nome_arquivo):
         with open(nome_arquivo, "w") as arquivo:
             for atividade in self.lista:
@@ -61,5 +66,3 @@ class Agenda:
                 dados_linha_atual[2],
                 datetime.strptime(dados_linha_atual[3], "%d/%m/%Y %H:%M:%S"))
             self._lista.append(atividade_atual)
-    def __str__(self):
-        return f"{self.lista}"
