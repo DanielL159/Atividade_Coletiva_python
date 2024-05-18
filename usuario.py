@@ -15,17 +15,13 @@ class Usuario:
   def adicionarTarefa(self,tarefa):
       self.agenda.adicionarALista(tarefa)
 
-  def removerTarefa(self,nome):
-      posicao=-1
-      for variavel in self.agenda.lista:
-          posicao+=1
-          if variavel.nome == nome.upper():
-              self.agenda.removerDaLista(posicao)
-              break;
+  def removerTarefa(self,posicao):
+    return self.agenda.removerDaLista(posicao)
+
 
   def mostraAtividade(self):
       self.agenda.mostraAtividade()
 
 
   def __str__(self):
-      return f"{self.nome} :\n"
+      return f"{self.nome} :\n {self.agenda}"
